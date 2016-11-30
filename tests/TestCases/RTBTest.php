@@ -54,15 +54,15 @@ class RTBTest extends \PHPUnit_Framework_TestCase
             ->withAnyParameters()
             ->willThrowException(new UncomparableException());
 
+        $list = [
+            new ComparableDummy,
+            $fakeComparable,
+            new ComparableDummy,
+        ];
+
         return [
-            [
-                10, []
-            ], [10, [
-                    new ComparableDummy,
-                    $fakeComparable,
-                    new ComparableDummy
-                ]
-            ],
+            [10, []],
+            [10, $list],
         ];
     }
 
